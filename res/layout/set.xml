@@ -1,0 +1,176 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gray3"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/style_topmenu_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/topmenu_height" >
+
+        <TextView
+            style="@style/style_topmenu_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:text="设置" />
+
+        <Button
+            android:id="@+id/set_btn_back"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/back" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/circle_corner_buy"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/set_ll_defaultoperate"
+            android:layout_width="fill_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/buy_style_personcenter_bg"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="10dp"
+                android:text="默认操作:"
+                android:textColor="@drawable/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/set_tv_defaultoperate"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:textColor="@drawable/black"
+                android:textSize="14sp" />
+
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/next"
+                android:clickable="false" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/gray2" />
+
+        <LinearLayout
+            android:id="@+id/set_ll_defaultexpress"
+            android:layout_width="fill_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/buy_style_personcenter_bg"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="10dp"
+                android:text="默认快递:"
+                android:textColor="@drawable/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/set_tv_defaultexpress"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:textColor="@drawable/black"
+                android:textSize="14sp" />
+
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/next"
+                android:clickable="false" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/gray2" />
+
+        <LinearLayout
+            android:id="@+id/set_ll_smstemplet"
+            android:layout_width="fill_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/buy_style_personcenter_bg"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="10dp"
+                android:text="短信模板:"
+                android:textColor="@drawable/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/set_tv_smstemplet"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:textColor="@drawable/black"
+                android:textSize="16sp" />
+
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/next"
+                android:clickable="false" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/set_ll_aboutus"
+        android:layout_width="fill_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/buy_style_personcenter_bg"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="10dp"
+            android:text="关于我们"
+            android:textColor="@drawable/black"
+            android:textSize="16sp" />
+
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/next"
+            android:clickable="false" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <drawable name="startbg">#0099cc</drawable>  <!-- 启动页背景 -->
+    <drawable name="topmenu_textcolor">#000000</drawable>   
+   <drawable name="list_textcolor">#000000</drawable>   
+   
+    
+  	<drawable name="white">#FFFFFF</drawable> 
+  	<drawable name="gray2">#f7f7f7</drawable>   
+ 	<drawable name="gray3">#ededed</drawable> 
+ 	<drawable name="black">#000000</drawable>	<!-- 黑色 -->
+	<drawable name="blue">#0000FF</drawable>	<!-- 蓝色 -->
+   
+</resources>

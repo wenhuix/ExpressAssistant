@@ -1,0 +1,27 @@
+<resources>
+    
+    <string name="title_activity_settings">设置</string>
+    
+    <string-array name="pref_notify_method_option">
+        <item>短信</item>
+        <item>电话</item>
+    </string-array>
+    <string-array name="pref_notify_method_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string name="pref_notify_method_defaultvalue">0</string>
+    
+    <string-array name="pref_num_confirm_time_option">
+        <item>5秒钟</item>
+        <item>10秒钟</item>
+        <item>15秒钟</item>
+    </string-array>
+    <string-array name="pref_num_confirm_time_value">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+    </string-array>
+    <string name="pref_num_confirm_time_defaultvalue">10</string>
+       
+</resources>

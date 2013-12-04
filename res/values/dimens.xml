@@ -1,0 +1,6 @@
+<resources>
+   
+    <dimen name="topmenu_title_textsize">20sp</dimen>
+    <dimen name="list_textsize">16sp</dimen>
+    <dimen name="topmenu_height">44dp</dimen>
+</resources>

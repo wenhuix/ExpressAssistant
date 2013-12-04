@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="assistant_init">你好，我是快递员助手，有什么能帮你吗？</string>
+    <string name="positive_buttom">确定</string>
+    <string name="nagitive_buttom">取消</string>
+    <string name="edit_phone_title">编辑电话号码：</string>
+    <string name="SMS_ERROR_GENERIC">短信发送失败，请检查号码后重试一次。</string>
+    <string name="SMS_ERROR_NO_SERVICE">无服务，请稍后再试。</string>
+    <string name="SMS_ERROR_RADIO_OFF">无线连接关闭，请打开连接。</string>
+    <string name="SMS_ERROR_NULL_PDU">PDU失败。</string>
+    <string name="sms">短信：</string>
+    <string name="phone">号码：</string>
+    <string name="send">短信已发送至：</string>    
+    
+</resources>
