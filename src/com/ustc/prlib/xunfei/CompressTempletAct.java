@@ -43,7 +43,7 @@ public class CompressTempletAct extends Activity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.compresstemplet);
+		setContentView(R.layout.company_list);
 		info = new SharePreferenceInfo(context);
 		initWidget();
 		initData();

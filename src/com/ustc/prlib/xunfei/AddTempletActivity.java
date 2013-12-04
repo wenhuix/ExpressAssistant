@@ -46,7 +46,7 @@ public class AddTempletActivity extends Activity  implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.addtemplet);
+		setContentView(R.layout.add_item);
 		addType = getIntent().getIntExtra(BaseParam.ADDTYPE, -1);
 		info = new SharePreferenceInfo(context);
 		initWidget();

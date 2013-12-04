@@ -19,11 +19,11 @@
 
         <Button
             android:id="@+id/set_btn_back"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/back" />
+            android:background="@drawable/ic_action_previous_item" />
     </RelativeLayout>
 
     <LinearLayout
@@ -58,12 +58,12 @@
                 android:maxLines="1"
                 android:paddingLeft="10dp"
                 android:textColor="@drawable/black"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <Button
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@drawable/next"
+                android:background="@drawable/ic_action_next_item"
                 android:clickable="false" />
         </LinearLayout>
 
@@ -84,7 +84,7 @@
                 android:layout_height="fill_parent"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="10dp"
-                android:text="默认快递:"
+                android:text="快递公司:"
                 android:textColor="@drawable/black"
                 android:textSize="16sp" />
 
@@ -97,12 +97,12 @@
                 android:maxLines="1"
                 android:paddingLeft="10dp"
                 android:textColor="@drawable/black"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <Button
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@drawable/next"
+                android:background="@drawable/ic_action_next_item"
                 android:clickable="false" />
         </LinearLayout>
 
@@ -141,7 +141,7 @@
             <Button
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:background="@drawable/next"
+                android:background="@drawable/ic_action_next_item"
                 android:clickable="false" />
         </LinearLayout>
     </LinearLayout>
@@ -169,7 +169,7 @@
         <Button
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/next"
+            android:background="@drawable/ic_action_next_item"
             android:clickable="false" />
     </LinearLayout>
 

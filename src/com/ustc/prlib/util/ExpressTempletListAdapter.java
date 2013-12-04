@@ -50,7 +50,7 @@ public class ExpressTempletListAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ListItemHolder holder = null;
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.compresstemplet_list_item, null);
+			convertView = mInflater.inflate(R.layout.company_item, null);
 			holder = new ListItemHolder();
 			holder.mTextView1 = (TextView) convertView.findViewById(R.id.compresstemplet_list_item_tv_title);
 			holder.btn = (Button) convertView.findViewById(R.id.compresstemplet_list_item_btn);

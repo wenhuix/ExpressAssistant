@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/gray3"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        style="@style/style_topmenu_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/topmenu_height" >
+
+        <TextView
+            android:id="@+id/addtemplet_tv_title"
+            style="@style/style_topmenu_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:text="@string/main_title" />
+
+        <Button
+            android:id="@+id/addtemplet_btn_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_action_previous_item" />
+
+        <Button
+            android:id="@+id/addtemplet_btn_save"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_action_save" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/addtemplet_et"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/et_bg3"
+        android:gravity="top"
+        android:padding="5dp" />
+
+</LinearLayout>

@@ -44,7 +44,7 @@ public class SmsTempletAct extends Activity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.smstemplet);
+		setContentView(R.layout.smstemplet_list);
 		info = new SharePreferenceInfo(context);
 		initWidget();
 		initData();

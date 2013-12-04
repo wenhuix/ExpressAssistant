@@ -21,42 +21,20 @@
     <string name="action_settings">设置</string>
     <string name="action_help">帮助</string>
     <string name="action_search">Search</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="welcome_content">USTC</string>
+    <string name="main_title">快递员助手</string>
+    <string name="welcome_content">快递员助手</string>
     <string name="send_buttom">发送</string>
 	
     
     <!-- help -->
     <string name="title_activity_help">帮助</string>
     <string name="how_to_use">使用方法：</string>
-    <string name="help_world">该应用能够帮助快递员利用短信或电话快速地通知客户。快递员只需要对着麦克风说出电话号码，即可通过语音识别准确地获知电话号码，并发送短信或打电话。</string>
+    <string name="help_world">此应用程序能够帮助快递员利用短信或电话的方式快速地通知客户收取包裹：快递员只需要对着麦克风说出相应的手机号码，程序即可通过语音识别技术将号码显示在屏幕上，并向该号码打电话或者发送预先设定的短信模板。</string>
     <string name="help_about">关于：</string>
-    <string name="author_design">设计：杨晶</string>
-    <string name="author_dev">开发：向文辉</string>
+    <string name="author_design">设计：小Y_king</string>
+    <string name="author_dev">开发：wenhuix</string>
     <string name="contactus">联系我们：xiangwenhui@gmail.com</string>
     <string name="version">版本：1.0.0</string>
     <string name="technical_support">语音识别技术由科大讯飞语音云提供</string>
-    
-    <!-- 讯飞语音 -->
-    <string name="ifly_app_id">5270cddf</string>
-    <string name="ok">确 定</string>
-	<string name="cancel">取 消</string>
-	<string name="superman_title">来 吧 !</string>
-	<string name="superman_content">让我把你的应用变的能听会说吧！</string>
-
-	<string-array
-		name="preference_entries_iat_engine">
-		<item>短信转写</item>
-		<item>地图搜索</item>
-		<item>热词搜索</item>
-		<item>视频搜索</item>
-	</string-array>
-	
-	<string-array
-		name="preference_values_iat_engine">
-		<item>sms</item>
-		<item>poi</item>
-		<item>vsearch</item>
-		<item>video</item>
-	</string-array>
+   
 </resources>

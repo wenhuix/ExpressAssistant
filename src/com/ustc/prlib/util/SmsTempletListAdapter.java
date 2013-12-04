@@ -51,7 +51,7 @@ public class SmsTempletListAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ListItemHolder holder = null;
 		if (convertView == null) {
-			convertView = mInflater.inflate(R.layout.smstemplet_list_item, null);
+			convertView = mInflater.inflate(R.layout.smstemplet_item, null);
 			holder = new ListItemHolder();
 			holder.mTextView1 = (TextView) convertView.findViewById(R.id.smstemplet_list_item_tv_title);
 			holder.mTextView2 = (TextView) convertView.findViewById(R.id.smstemplet_list_item_tv_company);

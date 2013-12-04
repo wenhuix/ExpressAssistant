@@ -143,40 +143,32 @@ public class MainActivity extends Activity implements OnClickListener, Recognize
 	SharePreferenceInfo info = new SharePreferenceInfo(context);
 	EditText et;
 	String phone;
+
 	private void startOperate(String phoneStr) {
 		this.phone = phoneStr;
-		switch ( info.getDefaultOperate() ) {
-		case BaseParam.OPERATE_CALLPHONE :
+		switch (info.getDefaultOperate()) {
+		case BaseParam.OPERATE_CALLPHONE:
 			PublicUtil.callPhone(context, phone);
 			break;
 
-		case BaseParam.OPERATE_SENDSMS :
-			String content = info.getDefaultSmsContent() + 
-			"【" + info.getDefaultCompressContent() + "】";
+		case BaseParam.OPERATE_SENDSMS:
+			String content = info.getDefaultSmsContent() + "【" + info.getDefaultCompressContent() + "】";
 			PublicUtil.editSendSms(context, phone, content);
 			break;
 
-		case BaseParam.OPERATE_ADDCONNECT :
+		case BaseParam.OPERATE_ADDCONNECT:
 			et = new EditText(this);
-			new AlertDialog.Builder(this)
-			.setTitle("请输入联系人")
-			.setIcon( android.R.drawable.ic_dialog_info)
-			.setView( et )
-			.setPositiveButton("确定",  
-					new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					if ( !"".equals( et.getText().toString().trim() ) ) {
-						PublicUtil.insertContact(context, et.getText().toString(), phone);
-					}
-				}
-			}  
-					)
-					.setNegativeButton("取消", null)
-					.show();
+			new AlertDialog.Builder(this).setTitle("请输入联系人").setIcon(android.R.drawable.ic_dialog_info).setView(et)
+					.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							if (!"".equals(et.getText().toString().trim())) {
+								PublicUtil.insertContact(context, et.getText().toString(), phone);
+							}
+						}
+					}).setNegativeButton("取消", null).show();
 			break;
 		}
-
 
 	}
 
