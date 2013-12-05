@@ -15,9 +15,9 @@ import com.ustc.prlib.vo.ExpressVo;
 import com.xiang.xunfei.R;
 
 
-public class ExpressTempletListAdapter extends BaseAdapter {
+public class ComapnyListAdapter extends BaseAdapter {
 	static class ListItemHolder {
-		TextView mTextView1;
+		TextView mTextView;
 		Button btn;
 	}
 
@@ -25,7 +25,7 @@ public class ExpressTempletListAdapter extends BaseAdapter {
 	private List<ExpressVo> items;
 	SharePreferenceInfo info;
 
-	public ExpressTempletListAdapter(Context context, List<ExpressVo> items) {
+	public ComapnyListAdapter(Context context, List<ExpressVo> items) {
 		mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.items = items;
 		info = new SharePreferenceInfo(context);
@@ -52,7 +52,7 @@ public class ExpressTempletListAdapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = mInflater.inflate(R.layout.company_item, null);
 			holder = new ListItemHolder();
-			holder.mTextView1 = (TextView) convertView.findViewById(R.id.compresstemplet_list_item_tv_title);
+			holder.mTextView = (TextView) convertView.findViewById(R.id.compresstemplet_list_item_tv_title);
 			holder.btn = (Button) convertView.findViewById(R.id.compresstemplet_list_item_btn);
 
 			convertView.setTag(holder);
@@ -62,7 +62,7 @@ public class ExpressTempletListAdapter extends BaseAdapter {
 
 		ExpressVo item = items.get(position);
 		if (item != null) {
-			 holder.mTextView1.setText( item.getContent() );
+			 holder.mTextView.setText( item.getContent() );
 			 if (  info.getDefaultCompressTempletId() == item.getId() ) {
 				 holder.btn.setBackgroundResource( R.drawable.btn_sel );
 			 } else {

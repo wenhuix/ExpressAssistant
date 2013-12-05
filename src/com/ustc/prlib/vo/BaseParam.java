@@ -11,6 +11,9 @@ public class BaseParam {
 	public static final int ADDTYPE_SMS_TEMPLET = 4;   //添加短信模板
 	public static final int ADDTYPE_EXPRESS_TEMPLET = 5;  //添加快递模板
 	public static final int ADDTYPE_DEFAULT_OPERATE = 6;  //设置默认操作
+	
+	public static final int ITEM_POSITON_LEFT = 7;
+	public static final int ITEM_POSITON_RIGHT = 8;
 	 
 	public static final String ADDTYPE = "type";
 }

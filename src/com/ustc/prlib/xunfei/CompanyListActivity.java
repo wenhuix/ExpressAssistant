@@ -16,7 +16,7 @@ import android.widget.ListView;
 
 import com.google.gson.reflect.TypeToken;
 import com.ustc.prlib.util.ButtonColorFilter;
-import com.ustc.prlib.util.ExpressTempletListAdapter;
+import com.ustc.prlib.util.ComapnyListAdapter;
 import com.ustc.prlib.util.JsonParserUtil;
 import com.ustc.prlib.util.PrivateFileReadSave;
 import com.ustc.prlib.util.SharePreferenceInfo;
@@ -33,11 +33,11 @@ import com.xiang.xunfei.R;
  * @date :2013-12-3 ÏÂÎç4:48:43 
  * @version : v4.0
  */
-public class CompressTempletAct extends Activity implements OnClickListener{
+public class CompanyListActivity extends Activity implements OnClickListener{
 	private Context context = this;
 	private Button btn_add, btn_back; 
 	private ListView listView; 
-	private ExpressTempletListAdapter adapter;
+	private ComapnyListAdapter adapter;
 	private ArrayList<ExpressVo> listVo;
 	SharePreferenceInfo info;
 	@Override
@@ -85,7 +85,7 @@ public class CompressTempletAct extends Activity implements OnClickListener{
 		if ( listVo == null ) {
 			listVo = new ArrayList<ExpressVo>();
 		}
-		adapter = new ExpressTempletListAdapter(context, listVo);
+		adapter = new ComapnyListAdapter(context, listVo);
 		listView.setAdapter( adapter);
 	}
 
@@ -96,7 +96,7 @@ public class CompressTempletAct extends Activity implements OnClickListener{
 			finish();
 			break;
 		case  R.id.compresstemplet_btn_add :
-			Intent intent = new Intent(context, AddTempletActivity.class);
+			Intent intent = new Intent(context, AddItemActivity.class);
 			intent.putExtra( BaseParam.ADDTYPE, BaseParam.ADDTYPE_EXPRESS_TEMPLET);
 			startActivityForResult(intent, 1);
 			break;

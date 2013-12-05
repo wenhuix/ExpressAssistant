@@ -52,7 +52,7 @@ public final class R {
         public static final int rightbg=0x7f020014;
         public static final int round_selector_checked=0x7f020015;
         public static final int round_selector_normal=0x7f020016;
-        public static final int set=0x7f020017;
+        public static final int settings=0x7f020017;
         public static final int speak=0x7f020018;
         public static final int speakbg=0x7f020019;
         public static final int speakbg2=0x7f02001a;
@@ -93,7 +93,7 @@ public final class R {
         public static final int set_btn_back=0x7f09001e;
         public static final int set_ll_aboutus=0x7f090025;
         public static final int set_ll_defaultexpress=0x7f090021;
-        public static final int set_ll_defaultoperate=0x7f09001f;
+        public static final int set_ll_defaultoperation=0x7f09001f;
         public static final int set_ll_smstemplet=0x7f090023;
         public static final int set_tv_defaultexpress=0x7f090022;
         public static final int set_tv_defaultoperate=0x7f090020;
@@ -121,7 +121,7 @@ public final class R {
         public static final int main=0x7f030004;
         public static final int main_list_item=0x7f030005;
         public static final int operation_choice=0x7f030006;
-        public static final int set=0x7f030007;
+        public static final int setting=0x7f030007;
         public static final int smstemplet_item=0x7f030008;
         public static final int smstemplet_list=0x7f030009;
         public static final int start=0x7f03000a;

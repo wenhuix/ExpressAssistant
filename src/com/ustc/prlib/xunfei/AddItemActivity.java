@@ -33,13 +33,11 @@ import android.widget.Toast;
  * @date :2013-12-3 下午3:46:33 
  * @version : v4.0
  */
-public class AddTempletActivity extends Activity  implements OnClickListener{
+public class AddItemActivity extends Activity  implements OnClickListener{
 	private Context context = this;
 	private Button btn_save, btn_back; 
 	private EditText et;
 	private TextView tv_title;
-	private LinearLayout ll_defaultOperate, ll_sendSms, ll_call, ll_addConnect;
-	private Button btn_sendSms, btn_call, btn_addConnect; 
 	private SharePreferenceInfo info;
 	private int addType;
 
@@ -60,49 +58,17 @@ public class AddTempletActivity extends Activity  implements OnClickListener{
 		ButtonColorFilter.setButtonFocusChanged( btn_save);
 		ButtonColorFilter.setButtonFocusChanged( btn_back);
 
-		ll_defaultOperate = (LinearLayout)findViewById( R.id.addtemplet_ll_defaultoperate );
-		ll_sendSms = (LinearLayout)findViewById( R.id.addtemplet_ll_sendsms );
-		ll_call = (LinearLayout)findViewById( R.id.addtemplet_ll_call );
-		ll_addConnect = (LinearLayout)findViewById( R.id.addtemplet_ll_addconnect );
-
-		btn_sendSms = (Button)findViewById( R.id.addtemplet_btn_sendsms );
-		btn_call = (Button)findViewById( R.id.addtemplet_btn_call );
-		btn_addConnect = (Button)findViewById( R.id.addtemplet_btn_addconnect );
-
-		ll_sendSms.setOnClickListener(this);
-		ll_call.setOnClickListener(this);
-		ll_addConnect.setOnClickListener(this);
 		btn_save.setOnClickListener(this);
 		btn_back.setOnClickListener(this);
 
 		switch( addType ) {
 		case BaseParam.ADDTYPE_SMS_TEMPLET :
-			ll_defaultOperate.setVisibility( View.GONE );
 			tv_title.setText("添加短信模板");
 			et.setHint("请输入短信内容");
 			break;
 		case BaseParam.ADDTYPE_EXPRESS_TEMPLET :
-			ll_defaultOperate.setVisibility( View.GONE );
-			tv_title.setText("添加快递");
+			tv_title.setText("添加快递公司");
 			et.setHint("请输入快递名称");
-			break;
-
-		case BaseParam.ADDTYPE_DEFAULT_OPERATE :
-			ll_defaultOperate.setVisibility( View.VISIBLE );
-			et.setVisibility( View.GONE );
-			btn_save.setVisibility( View.GONE );
-			tv_title.setText("请选择默认操作");
-			switch( info.getDefaultOperate() ) {
-			case BaseParam.OPERATE_SENDSMS :  
-				btn_sendSms.setBackgroundResource( R.drawable.btn_sel );
-				break;
-			case BaseParam.OPERATE_CALLPHONE :  
-				btn_call.setBackgroundResource( R.drawable.btn_sel );
-				break;
-			case BaseParam.OPERATE_ADDCONNECT :  
-				btn_addConnect.setBackgroundResource( R.drawable.btn_sel );
-				break;
-			}
 			break;
 		}
 	}
@@ -173,17 +139,19 @@ public class AddTempletActivity extends Activity  implements OnClickListener{
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.addtemplet_btn_save:
-			switch ( addType ) {
+			switch (addType) {
 			case BaseParam.ADDTYPE_SMS_TEMPLET:
-				if ( !"".equals( et.getText().toString() ) && et.getText().toString() != null ) {
-					addSmsTemplet( et.getText().toString() );
+				if (!"".equals(et.getText().toString())
+						&& et.getText().toString() != null) {
+					addSmsTemplet(et.getText().toString());
 				} else {
 					Toast.makeText(context, "模板内容不能为空", 0).show();
 				}
 				break;
 			case BaseParam.ADDTYPE_EXPRESS_TEMPLET:
-				if ( !"".equals( et.getText().toString() ) && et.getText().toString() != null ) {
-					addCompressTemplet( et.getText().toString() );
+				if (!"".equals(et.getText().toString())
+						&& et.getText().toString() != null) {
+					addCompressTemplet(et.getText().toString());
 				} else {
 					Toast.makeText(context, "快递名称不能为空", 0).show();
 				}
@@ -191,25 +159,6 @@ public class AddTempletActivity extends Activity  implements OnClickListener{
 			}
 			break;
 		case R.id.addtemplet_btn_back:
-			finish();
-			break;
-
-		case R.id.addtemplet_ll_sendsms:
-			info.updateDefaultOperate( BaseParam.OPERATE_SENDSMS );
-			Toast.makeText(context, "默认操作修改成功", 0).show();
-			setResult(1);
-			finish();
-			break;
-		case R.id.addtemplet_ll_call:
-			info.updateDefaultOperate( BaseParam.OPERATE_CALLPHONE );
-			Toast.makeText(context, "默认操作修改成功", 0).show();
-			setResult(1);
-			finish();
-			break;
-		case R.id.addtemplet_ll_addconnect:
-			info.updateDefaultOperate( BaseParam.OPERATE_ADDCONNECT );
-			Toast.makeText(context, "默认操作修改成功", 0).show();
-			setResult(1);
 			finish();
 			break;
 		}

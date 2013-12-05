@@ -3,7 +3,7 @@ package com.ustc.prlib.vo;
 
 public class PhoneVo  extends BaseVo{
 	private String content;
-    private String positon;
+    private int position;
     private boolean isDefault = false;
     
 	public boolean isDefault() {
@@ -18,11 +18,11 @@ public class PhoneVo  extends BaseVo{
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getPositon() {
-		return positon;
+	public int getPositon() {
+		return position;
 	}
-	public void setPositon(String positon) {
-		this.positon = positon;
+	public void setPositon(int positon) {
+		this.position = positon;
 	}
    
     

@@ -27,22 +27,22 @@ import android.widget.TextView;
  * @date :2013-12-3 下午2:29:26 
  * @version : v4.0
  */
-public class SetActivity extends Activity implements OnClickListener {
+public class SettingActivity extends Activity implements OnClickListener {
 	private LinearLayout ll_defaultOperate, ll_defaultExpress, ll_smsTemplet, ll_aboutUs;
-	private TextView tv_defaultOperate, tv_defaultExpress, tv_smsTemplet;
+	private TextView tv_defaultOperation, tv_defaultExpress, tv_smsTemplet;
 	private SharePreferenceInfo info;
 	private Button btn_back;
 	private Context context = this;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.set);
+		setContentView(R.layout.setting);
 		info = new SharePreferenceInfo(context);
-		ll_defaultOperate = (LinearLayout)findViewById( R.id.set_ll_defaultoperate );
+		ll_defaultOperate = (LinearLayout)findViewById( R.id.set_ll_defaultoperation );
 		ll_defaultExpress = (LinearLayout)findViewById( R.id.set_ll_defaultexpress );
 		ll_smsTemplet = (LinearLayout)findViewById( R.id.set_ll_smstemplet );
 		
-		tv_defaultOperate = (TextView)findViewById( R.id.set_tv_defaultoperate );
+		tv_defaultOperation = (TextView)findViewById( R.id.set_tv_defaultoperate );
 		tv_defaultExpress = (TextView)findViewById( R.id.set_tv_defaultexpress );
 		tv_smsTemplet = (TextView)findViewById( R.id.set_tv_smstemplet );
 		
@@ -59,19 +59,20 @@ public class SetActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch ( v.getId() ) {
-		case  R.id.set_ll_defaultoperate :
-			Intent intent = new Intent(SetActivity.this, AddTempletActivity.class);
-			intent.putExtra( BaseParam.ADDTYPE, BaseParam.ADDTYPE_DEFAULT_OPERATE );
-			startActivityForResult(intent, 1);
+		case  R.id.set_ll_defaultoperation :
+			//Intent intent = new Intent(SettingActivity.this, OperationChoiceActivity.class);
+			//intent.putExtra( BaseParam.ADDTYPE, BaseParam.ADDTYPE_DEFAULT_OPERATE );
+			//startActivityForResult(intent, 1);
+			startActivity(new Intent(SettingActivity.this, OperationChoiceActivity.class));
 			break;
 		case  R.id.set_ll_defaultexpress :
-			startActivity(new Intent(SetActivity.this, CompressTempletAct.class));
+			startActivity(new Intent(SettingActivity.this, CompanyListActivity.class));
 			break;
 		case  R.id.set_ll_smstemplet :
-			startActivity(new Intent(SetActivity.this, SmsTempletAct.class));
+			startActivity(new Intent(SettingActivity.this, SmsTempletActivity.class));
 			break;
 		case  R.id.set_ll_aboutus :
-			startActivity(new Intent(SetActivity.this, AboutUsActivity.class));
+			startActivity(new Intent(SettingActivity.this, AboutUsActivity.class));
 			break;
 		case  R.id.set_btn_back :
 			finish();
@@ -84,13 +85,13 @@ public class SetActivity extends Activity implements OnClickListener {
 		super.onResume();
 		switch( info.getDefaultOperate() ) {
 		case BaseParam.OPERATE_SENDSMS :  
-			tv_defaultOperate.setText("发送短信");
+			tv_defaultOperation.setText("发送短信");
 			break;
 		case BaseParam.OPERATE_CALLPHONE :  
-			tv_defaultOperate.setText("拨打电话");
+			tv_defaultOperation.setText("拨打电话");
 			break;
 		case BaseParam.OPERATE_ADDCONNECT :  
-			tv_defaultOperate.setText("加入通讯录");
+			tv_defaultOperation.setText("加入通讯录");
 			break;
 		}
 		

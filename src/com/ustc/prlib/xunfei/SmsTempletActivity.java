@@ -16,7 +16,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.google.gson.reflect.TypeToken;
 import com.ustc.prlib.util.ButtonColorFilter;
-import com.ustc.prlib.util.ExpressTempletListAdapter;
+import com.ustc.prlib.util.ComapnyListAdapter;
 import com.ustc.prlib.util.JsonParserUtil;
 import com.ustc.prlib.util.PrivateFileReadSave;
 import com.ustc.prlib.util.SharePreferenceInfo;
@@ -34,7 +34,7 @@ import com.xiang.xunfei.R;
  * @date :2013-12-3 ÏÂÎç2:59:18 
  * @version : v4.0
  */
-public class SmsTempletAct extends Activity implements OnClickListener{
+public class SmsTempletActivity extends Activity implements OnClickListener{
 	private Context context = this;
 	private Button btn_add, btn_back; 
 	private ListView listView; 
@@ -108,7 +108,7 @@ public class SmsTempletAct extends Activity implements OnClickListener{
 			finish();
 			break;
 		case  R.id.smstemplet_btn_add :
-			Intent intent = new Intent(context, AddTempletActivity.class);
+			Intent intent = new Intent(context, AddItemActivity.class);
 			intent.putExtra( BaseParam.ADDTYPE, BaseParam.ADDTYPE_SMS_TEMPLET);
 			startActivityForResult(intent, 1);
 			break;

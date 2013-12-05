@@ -34,20 +34,23 @@
             android:name="com.ustc.prlib.xunfei.MainActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity
-            android:name="com.ustc.prlib.xunfei.SetActivity"
+            android:name="com.ustc.prlib.xunfei.SettingActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity
             android:name="com.ustc.prlib.xunfei.AboutUsActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity
-            android:name="com.ustc.prlib.xunfei.SmsTempletAct"
+            android:name="com.ustc.prlib.xunfei.SmsTempletActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
         
         <activity
-            android:name="com.ustc.prlib.xunfei.CompressTempletAct"
+            android:name="com.ustc.prlib.xunfei.CompanyListActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity
-            android:name="com.ustc.prlib.xunfei.AddTempletActivity"
+            android:name="com.ustc.prlib.xunfei.AddItemActivity"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.ustc.prlib.xunfei.OperationChoiceActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
     </application>
 

@@ -41,8 +41,7 @@ import com.xiang.xunfei.R;
  * @version : v4.0
  */
 public class MainActivity extends Activity implements OnClickListener, RecognizerDialogListener{
-	private static String POSITION_LEFT = "1";
-	private static String POSTIION_RIGHT = "2";
+
 	private StringBuilder builder;
 
 	private ListView listView; 
@@ -75,7 +74,7 @@ public class MainActivity extends Activity implements OnClickListener, Recognize
 		listVo = new ArrayList<PhoneVo>();
 		PhoneVo vo = new PhoneVo();
 		vo.setContent("您好，很高兴为您服务，请说手机号！");
-		vo.setPositon( POSITION_LEFT );
+		vo.setPositon( BaseParam.ITEM_POSITON_LEFT );
 		listVo.add(vo);
 		adapter = new MainListAdapter(context, listVo);
 
@@ -129,7 +128,7 @@ public class MainActivity extends Activity implements OnClickListener, Recognize
 			if ( phone != null ) {
 				PhoneVo vo = new PhoneVo();
 				vo.setContent( phone );
-				vo.setPositon( POSTIION_RIGHT );
+				vo.setPositon( BaseParam.ITEM_POSITON_RIGHT );
 				listVo.add( vo );
 				adapter.notifyDataSetChanged();
 				Toast.makeText(context, "识别号码"+ phone, Toast.LENGTH_SHORT).show();
@@ -187,7 +186,7 @@ public class MainActivity extends Activity implements OnClickListener, Recognize
 			break;
 
 		case  R.id.main_btn_set :
-			startActivity(new Intent(MainActivity.this, SetActivity.class));
+			startActivity(new Intent(MainActivity.this, SettingActivity.class));
 			break;
 		}
 	}

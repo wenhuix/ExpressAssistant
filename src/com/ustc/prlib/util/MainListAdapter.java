@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 
+import com.ustc.prlib.vo.BaseParam;
 import com.ustc.prlib.vo.PhoneVo;
 import com.xiang.xunfei.R;
 
@@ -18,7 +19,7 @@ import com.xiang.xunfei.R;
 public class MainListAdapter extends BaseAdapter {
 	static class ListItemHolder {
 		RelativeLayout rel_root;
-		TextView mTextView1;
+		TextView mTextView;
 	}
 
 	private LayoutInflater mInflater;
@@ -52,7 +53,7 @@ public class MainListAdapter extends BaseAdapter {
 			convertView = mInflater.inflate(R.layout.main_list_item, null);
 			holder = new ListItemHolder();
 			holder.rel_root = (RelativeLayout) convertView.findViewById(R.id.main_list_item_rel_root);
-			holder.mTextView1 = (TextView) convertView.findViewById(R.id.main_list_item_tv_title);
+			holder.mTextView = (TextView) convertView.findViewById(R.id.main_list_item_tv_title);
 			convertView.setTag(holder);
 		} else {
 			holder = (ListItemHolder) convertView.getTag();
@@ -60,19 +61,19 @@ public class MainListAdapter extends BaseAdapter {
 
 		PhoneVo item = items.get(position);
 		if (item != null) {
-			 holder.mTextView1.setText( item.getContent() );
-			 if ( "1".equals( item.getPositon() )) {
-				 holder.mTextView1.setBackgroundResource( R.drawable.leftbg );
+			 holder.mTextView.setText( item.getContent() );
+			 if ( item.getPositon() == BaseParam.ITEM_POSITON_LEFT) {
+				 holder.mTextView.setBackgroundResource( R.drawable.leftbg );
 				 RelativeLayout.LayoutParams param = 
 						 new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 				 param.addRule( RelativeLayout.ALIGN_PARENT_LEFT  );
-				 holder.mTextView1.setLayoutParams(param);
+				 holder.mTextView.setLayoutParams(param);
 			 } else {
-				 holder.mTextView1.setBackgroundResource( R.drawable.rightbg );
+				 holder.mTextView.setBackgroundResource( R.drawable.rightbg );
 				 RelativeLayout.LayoutParams param = 
 						 new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 				 param.addRule( RelativeLayout.ALIGN_PARENT_RIGHT );
-				 holder.mTextView1.setLayoutParams(param);
+				 holder.mTextView.setLayoutParams(param);
 			 }
 		}
 		return convertView;
