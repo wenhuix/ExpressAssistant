@@ -41,6 +41,7 @@ public class ItemOperationActivity extends Activity  implements OnClickListener{
 	private TextView tv_title;
 	private SharePreferenceInfo info;
 	private int addType;
+	private int position;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,16 +75,16 @@ public class ItemOperationActivity extends Activity  implements OnClickListener{
 		case BaseParam.OPERATION_EDIT_SMS_TEMPLATE:
 			tv_title.setText("修改短信模板");
 			et.setText(getIntent().getExtras().get(BaseParam.CLICK_ITEM_CONTENT).toString());
-			getIntent().getExtras().get(BaseParam.CLICK_ITEM_POSION);
+			position = (Integer) getIntent().getExtras().get(BaseParam.CLICK_ITEM_POSION);
 		case BaseParam.OPERATION_EDIT_COMPANY_TEMPLATE:
 			tv_title.setText("修改快递公司");
 			et.setText(getIntent().getExtras().get(BaseParam.CLICK_ITEM_CONTENT).toString());
-			getIntent().getExtras().get(BaseParam.CLICK_ITEM_POSION);
+			position = (Integer) getIntent().getExtras().get(BaseParam.CLICK_ITEM_POSION);
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	private void addSmsTemplet(String content) {
+	private void addSmsTemplate(String content) {
 		int currentId = 0;
 		ArrayList<SmsVo> listVo = null;
 		String temp = PrivateFileReadSave.read(BaseParam.SMS_FILENAME, context);
@@ -92,10 +93,10 @@ public class ItemOperationActivity extends Activity  implements OnClickListener{
 			listVo = (ArrayList<SmsVo>) JsonParserUtil.parseJson2ListNoItem(temp, type);
 			 
 		}  
-		if ( listVo == null ) {
+		if (listVo == null) {
 			listVo = new ArrayList<SmsVo>();
-		} else {
-			currentId = listVo.get(listVo.size()-1).getId() + 1;
+		} else if (listVo.size() > 0) {
+			currentId = listVo.get(listVo.size() - 1).getId() + 1;
 		}
 		
 		SmsVo vo = new SmsVo();
@@ -106,17 +107,16 @@ public class ItemOperationActivity extends Activity  implements OnClickListener{
 		Gson gson = new Gson();
 		String result = gson.toJson( listVo );
 		PrivateFileReadSave.save(BaseParam.SMS_FILENAME, result, context);
-		info.updateDefaultSmsTempletId( currentId );
-		info.updateDefaultSmsContent(content);
+		info.updateDefaultSmsTemplateId( currentId );
+		info.updateDefaultSmsTemplate(content);
 		Toast.makeText(context, "添加成功", 0).show();
 		setResult(1);
 		finish();
 	}
 	
-	//TODO
-	private void EditSmsTemplate(int position) {
+	@SuppressWarnings("unchecked")
+	private void editSmsTemplate(String content) {
 
-		int currentId = 0;
 		ArrayList<SmsVo> listVo = null;
 		String temp = PrivateFileReadSave.read(BaseParam.SMS_FILENAME, context);
 		if ( temp != null ) {
@@ -127,45 +127,71 @@ public class ItemOperationActivity extends Activity  implements OnClickListener{
 		if ( listVo == null || listVo.size()<position+1) {
 			return;
 		}
-		listVo.remove(position);
+		listVo.get(position).setContent(content);
 		
 		Gson gson = new Gson();
-		String result = gson.toJson( listVo );
+		String result = gson.toJson(listVo);
 		PrivateFileReadSave.save(BaseParam.SMS_FILENAME, result, context);
-		info.updateDefaultSmsTempletId(0);
-		info.updateDefaultSmsContent(listVo.get(0).getContent());
-		Toast.makeText(context, "删除成功", 0).show();
+		info.updateDefaultSmsTemplateId(listVo.get(position).getId());
+		info.updateDefaultSmsTemplate(content);
+		Toast.makeText(context, "修改成功", 0).show();
 		setResult(1);
 		finish();
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void addCompressTemplet(String content) {
+	private void addCompany(String content) {
 		int currentId = 0;
 		ArrayList<ExpressVo> listVo = null;
-		String temp = PrivateFileReadSave.read(BaseParam.COMPRESS_FILENAME, context);
+		String temp = PrivateFileReadSave.read(BaseParam.EXPRESS_FILENAME, context);
 		if ( temp != null ) {
 			Type type = new TypeToken<ArrayList<ExpressVo>>(){}.getType();
 			listVo = (ArrayList<ExpressVo>) JsonParserUtil.parseJson2ListNoItem(temp, type);
 		}  
 		
-		if ( listVo == null ) {
+		if (listVo == null) {
 			listVo = new ArrayList<ExpressVo>();
-		} else {
-			currentId = listVo.get(listVo.size()-1).getId() + 1;
+		} else if (listVo.size() > 0) {
+			currentId = listVo.get(listVo.size() - 1).getId() + 1;
 		}
-		
+
 		ExpressVo vo = new ExpressVo();
 		vo.setContent( content );
-		vo.setId( currentId );
+		vo.setId(currentId);
 		listVo.add(vo);
 		
 		Gson gson = new Gson();
 		String result = gson.toJson( listVo );
-		PrivateFileReadSave.save(BaseParam.COMPRESS_FILENAME, result, context);
-		info.updateDefaultCompressTempletId( currentId );
-		info.updateDefaultCompressContent(content);
+		PrivateFileReadSave.save(BaseParam.EXPRESS_FILENAME, result, context);
+		info.updateDefaultCompanyId(currentId);
+		info.updateDefaultCompany(content);
 		Toast.makeText(context, "添加成功", 0).show();
+		setResult(1);
+		finish();
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void editCompany(String content) {
+		ArrayList<ExpressVo> listVo = null;
+		String temp = PrivateFileReadSave.read(BaseParam.EXPRESS_FILENAME, context);
+		if ( temp != null ) {
+			Type type = new TypeToken<ArrayList<ExpressVo>>(){}.getType();
+			listVo = (ArrayList<ExpressVo>) JsonParserUtil.parseJson2ListNoItem(temp, type);
+		}  
+		
+		if ( listVo == null || listVo.size()<position+1) {
+			return;
+		} 
+		listVo.get(position).setContent(content);
+		
+		Gson gson = new Gson();
+		String result = gson.toJson( listVo );
+		PrivateFileReadSave.save(BaseParam.EXPRESS_FILENAME, result, context);
+		
+		info.updateDefaultCompanyId(listVo.get(position).getId());
+		info.updateDefaultCompany(content);
+		
+		Toast.makeText(context, "修改成功", 0).show();
 		setResult(1);
 		finish();
 	}
@@ -178,7 +204,7 @@ public class ItemOperationActivity extends Activity  implements OnClickListener{
 			case BaseParam.OPERATION_ADD_SMS_TEMPLATE:
 				if (!"".equals(et.getText().toString())
 						&& et.getText().toString() != null) {
-					addSmsTemplet(et.getText().toString());
+					addSmsTemplate(et.getText().toString());
 				} else {
 					Toast.makeText(context, "模板内容不能为空", 0).show();
 				}
@@ -186,11 +212,29 @@ public class ItemOperationActivity extends Activity  implements OnClickListener{
 			case BaseParam.OPERATION_ADD_COMPANY_TEMPLATE:
 				if (!"".equals(et.getText().toString())
 						&& et.getText().toString() != null) {
-					addCompressTemplet(et.getText().toString());
+					addCompany(et.getText().toString());
 				} else {
 					Toast.makeText(context, "快递名称不能为空", 0).show();
 				}
 				break;
+			case BaseParam.OPERATION_EDIT_SMS_TEMPLATE:
+				if (!"".equals(et.getText().toString())
+						&& et.getText().toString() != null) {
+					editSmsTemplate(et.getText().toString());
+				} else {
+					Toast.makeText(context, "模板内容不能为空", 0).show();
+				}
+				break;
+				
+			case BaseParam.OPERATION_EDIT_COMPANY_TEMPLATE:
+				if (!"".equals(et.getText().toString())
+						&& et.getText().toString() != null) {
+					editCompany(et.getText().toString());
+				} else {
+					Toast.makeText(context, "模板内容不能为空", 0).show();
+				}				
+				break;
+				
 			}
 			break;
 		case R.id.addtemplet_btn_back:

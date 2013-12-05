@@ -26,45 +26,45 @@ public class SharePreferenceInfo {
 	}
 
 	//默认短信模板ID，无返回-1
-	public int getDefaultSmsTempletId() {
+	public int getDefaultSmsTemplateId() {
 		SharedPreferences mPreferences = mContext.getSharedPreferences( iniName, Context.MODE_PRIVATE);
-		return mPreferences.getInt( "_DefaultSmsTempletId", -1);
+		return mPreferences.getInt( "_DefaultSmsTemplateId", -1);
 	}
-	public void updateDefaultSmsTempletId(int id) {
+	public void updateDefaultSmsTemplateId(int id) {
 		Editor editor = mContext.getSharedPreferences( iniName, Context.MODE_PRIVATE).edit();
-		editor.putInt ( "_DefaultSmsTempletId", id);
+		editor.putInt ( "_DefaultSmsTemplateId", id);
 		editor.commit();
 	}
 	//默认短信模板内容 
-	public String getDefaultSmsContent() {
+	public String getDefaultSmsTemplate() {
 		SharedPreferences mPreferences = mContext.getSharedPreferences( iniName, Context.MODE_PRIVATE);
-		return mPreferences.getString( "_DefaultSmsContent", null);
+		return mPreferences.getString( "_DefaultSmsTemplate", null);
 	}
-	public void updateDefaultSmsContent(String content) {
+	public void updateDefaultSmsTemplate(String content) {
 		Editor editor = mContext.getSharedPreferences( iniName, Context.MODE_PRIVATE).edit();
-		editor.putString ( "_DefaultSmsContent", content);
+		editor.putString ( "_DefaultSmsTemplate", content);
 		editor.commit();
 	}
 
 
 	//默认快递模板ID，无返回-1
-	public int getDefaultCompressTempletId() {
+	public int getDefaultCompanyId() {
 		SharedPreferences mPreferences = mContext.getSharedPreferences( iniName, Context.MODE_PRIVATE);
-		return mPreferences.getInt( "_DefaultCompressTempletId", -1);
+		return mPreferences.getInt( "_DefaultCompanyId", -1);
 	}
-	public void updateDefaultCompressTempletId(int id) {
+	public void updateDefaultCompanyId(int id) {
 		Editor editor = mContext.getSharedPreferences( iniName, Context.MODE_PRIVATE).edit();
-		editor.putInt ( "_DefaultCompressTempletId", id);
+		editor.putInt ( "_DefaultCompanyId", id);
 		editor.commit();
 	}
 	//默认快递模板内容 
-	public String getDefaultCompressContent() {
+	public String getDefaultCompany() {
 		SharedPreferences mPreferences = mContext.getSharedPreferences( iniName, Context.MODE_PRIVATE);
-		return mPreferences.getString( "_DefaultCompressContent", null);
+		return mPreferences.getString( "_DefaultCompany", null);
 	}
-	public void updateDefaultCompressContent(String content) {
+	public void updateDefaultCompany(String content) {
 		Editor editor = mContext.getSharedPreferences( iniName, Context.MODE_PRIVATE).edit();
-		editor.putString ( "_DefaultCompressContent", content);
+		editor.putString ( "_DefaultCompany", content);
 		editor.commit();
 	}
 

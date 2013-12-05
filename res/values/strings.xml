@@ -33,7 +33,21 @@
     <string name="contactus">联系我们：xiangwenhui@gmail.com</string>
     <string name="version">版本：1.0.0</string>
     <string name="technical_support">语音识别技术由科大讯飞语音云提供</string>
+    
+    <string-array name="sms_template">
+        <item>亲爱的客户，快递放在物业啦，麻烦有空像一只小鹿一样欢快地跑过去拿一下。</item>
+        <item>主人，我是您的包小裹，我坐飞机，又是坐火车，紧接着又被汇通师傅用电动车拉到科大东门，请在12点到12点20分来救我！我在等你！</item>
+    </string-array>
 
+    <string-array name="express_company">
+        <item>汇通快递</item>
+        <item>圆通快递</item>
+        <item>申通快递</item>
+        <item>中通快递</item>
+        <item>韵达快递</item>
+        <item>顺丰快递</item>
+    </string-array>
+    
     <string-array name="menu">
         <item>编辑</item>
         <item>删除</item>

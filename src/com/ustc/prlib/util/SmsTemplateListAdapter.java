@@ -65,8 +65,8 @@ public class SmsTemplateListAdapter extends BaseAdapter {
 		SmsVo item = items.get(position);
 		if (item != null) {
 			 holder.mTextView1.setText( item.getContent() );
-			 holder.mTextView2.setText( info.getDefaultCompressContent() );
-			 if (  info.getDefaultSmsTempletId() == item.getId() ) {
+			 holder.mTextView2.setText( info.getDefaultCompany() );
+			 if (  info.getDefaultSmsTemplateId() == item.getId() ) {
 				 holder.btn.setBackgroundResource( R.drawable.btn_sel );
 			 } else {
 				 holder.btn.setBackgroundResource( R.drawable.btn_selno );

@@ -42,9 +42,6 @@ import com.xiang.xunfei.R;
  */
 public class CompanyListActivity extends Activity implements OnClickListener{
 	
-	public static final int EDIT_COMPANY_ITEM = 0;
-	public static final int DELETE_COMPANY_ITEM = 1;
-	
 	private Context context = this;
 	private Button btn_add, btn_back; 
 	private ListView listView; 
@@ -77,25 +74,12 @@ public class CompanyListActivity extends Activity implements OnClickListener{
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				//listVo.get(position).setDefault( true );
-				info.updateDefaultCompressContent( listVo.get(position).getContent() );
-				info.updateDefaultCompressTempletId( listVo.get(position).getId() );
+				info.updateDefaultCompany( listVo.get(position).getContent() );
+				info.updateDefaultCompanyId( listVo.get(position).getId() );
 				adapter.notifyDataSetChanged();
-				finish();
+				//finish();
 			}
 		});
-		
-/*		listView.setOnItemLongClickListener(new OnItemLongClickListener() {
-
-			@Override
-			public boolean onItemLongClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub
-				//Toast.makeText(context, "Item in position " + position + " clicked", 0).show();
-				return true;
-			}
-			
-		}
-		);*/
 		
 		registerForContextMenu(listView);
 		
@@ -103,7 +87,7 @@ public class CompanyListActivity extends Activity implements OnClickListener{
 
 	@SuppressWarnings("unchecked")
 	private void initData() {
-		String jsonStr = PrivateFileReadSave.read(BaseParam.COMPRESS_FILENAME, context);
+		String jsonStr = PrivateFileReadSave.read(BaseParam.EXPRESS_FILENAME, context);
 		if ( jsonStr != null ) {
 			Type type = new TypeToken<ArrayList<ExpressVo>>(){}.getType();
 			listVo = (ArrayList<ExpressVo>) JsonParserUtil.parseJson2ListNoItem(jsonStr, type);
@@ -145,14 +129,14 @@ public class CompanyListActivity extends Activity implements OnClickListener{
 		AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item
 				.getMenuInfo();
 		int menuItemIndex = item.getItemId();
+		int position = menuInfo.position;
 		//String[] menuItems = getResources().getStringArray(R.array.menu);
 		//String menuItemName = menuItems[menuItemIndex];
-
-		//Toast.makeText(context, info.position + " clicked", 0).show();
-		int position = menuInfo.position;
+		Toast.makeText(context, position + " clicked", 0).show();
+		
 		switch (menuItemIndex) {
 
-		case EDIT_COMPANY_ITEM:
+		case 0:
 			
 			Intent intent = new Intent(context, ItemOperationActivity.class);
 			intent.putExtra(BaseParam.OPERATION_TYPE,
@@ -162,19 +146,27 @@ public class CompanyListActivity extends Activity implements OnClickListener{
 			startActivityForResult(intent, 1);
 			break;
 
-		case DELETE_COMPANY_ITEM:
+		case 1:
 
-			listVo.remove(position);
-			if(this.info.getDefaultCompressTempletId() == position && listVo.size()>0)
-			{
-				info.updateDefaultCompressContent(listVo.get(0).getContent());
-				info.updateDefaultCompressTempletId(0);
+			boolean needUpdateSetting = false;
+
+			if (this.info.getDefaultCompanyId() == listVo.get(position).getId()) {
+				needUpdateSetting = true;
 			}
+			listVo.remove(position);
+			if (needUpdateSetting && listVo.size() > 0) {
+				info.updateDefaultCompany(listVo.get(0).getContent());
+				info.updateDefaultCompanyId(listVo.get(0).getId());
+			} else if (listVo.size() == 0) {
+				info.updateDefaultCompany(null);
+				info.updateDefaultCompanyId(-1);
+			}
+
 			adapter.notifyDataSetChanged();
 			Gson gson = new Gson();
 			String result = gson.toJson( listVo );
-			PrivateFileReadSave.save(BaseParam.SMS_FILENAME, result, context);
-			finish();
+			PrivateFileReadSave.save(BaseParam.EXPRESS_FILENAME, result, context);
+			//finish();
 			break;
 		}
 		

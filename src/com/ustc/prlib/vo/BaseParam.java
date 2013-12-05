@@ -6,7 +6,7 @@ public class BaseParam {
 	public static final int OPERATE_ADDCONNECT = 3;   //联系人添加
 	
 	public static final String SMS_FILENAME = "smstemplate.json"; 	//短信模板文件
-	public static final String COMPRESS_FILENAME = "expressCompany.json";  //快递公司文件
+	public static final String EXPRESS_FILENAME = "expressCompany.json";  //快递公司文件
 	
 	public static final int OPERATION_ADD_SMS_TEMPLATE = 4;   //添加短信模板
 	public static final int OPERATION_ADD_COMPANY_TEMPLATE = 5;  //添加公司模板

@@ -63,7 +63,7 @@ public class ComapnyListAdapter extends BaseAdapter {
 		ExpressVo item = items.get(position);
 		if (item != null) {
 			 holder.mTextView.setText( item.getContent() );
-			 if (  info.getDefaultCompressTempletId() == item.getId() ) {
+			 if (  info.getDefaultCompanyId() == item.getId() ) {
 				 holder.btn.setBackgroundResource( R.drawable.btn_sel );
 			 } else {
 				 holder.btn.setBackgroundResource( R.drawable.btn_selno );

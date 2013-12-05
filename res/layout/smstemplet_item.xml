@@ -43,7 +43,7 @@
             android:layout_gravity="center"
             android:background="@drawable/btn_sel"
             android:focusable="false"
-             />
+            android:clickable="false" />
     </LinearLayout>
 
 </LinearLayout>

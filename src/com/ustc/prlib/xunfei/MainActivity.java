@@ -151,7 +151,7 @@ public class MainActivity extends Activity implements OnClickListener, Recognize
 			break;
 
 		case BaseParam.OPERATE_SENDSMS:
-			String content = info.getDefaultSmsContent() + "¡¾" + info.getDefaultCompressContent() + "¡¿";
+			String content = info.getDefaultSmsTemplate() + "¡¾" + info.getDefaultCompany() + "¡¿";
 			PublicUtil.editSendSms(context, phone, content);
 			break;
 

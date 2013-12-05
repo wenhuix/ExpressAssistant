@@ -84,18 +84,21 @@ public class ActionChoiceActivity extends Activity  implements OnClickListener{
 			Toast.makeText(context, "默认操作修改成功", 0).show();
 			setResult(1);
 			finish();
+			startActivity(getIntent());
 			break;
 		case R.id.addtemplet_ll_call:
 			info.updateDefaultOperate( BaseParam.OPERATE_CALLPHONE );
 			Toast.makeText(context, "默认操作修改成功", 0).show();
 			setResult(1);
 			finish();
+			startActivity(getIntent());
 			break;
 		case R.id.addtemplet_ll_addconnect:
 			info.updateDefaultOperate( BaseParam.OPERATE_ADDCONNECT );
 			Toast.makeText(context, "默认操作修改成功", 0).show();
 			setResult(1);
 			finish();
+			startActivity(getIntent());
 			break;
 		}
 	}
