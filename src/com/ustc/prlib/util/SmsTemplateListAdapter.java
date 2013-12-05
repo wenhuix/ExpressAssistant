@@ -15,7 +15,7 @@ import com.ustc.prlib.vo.SmsVo;
 import com.xiang.xunfei.R;
 
 
-public class SmsTempletListAdapter extends BaseAdapter {
+public class SmsTemplateListAdapter extends BaseAdapter {
 	static class ListItemHolder {
 		TextView mTextView1;
 		TextView mTextView2;
@@ -26,7 +26,7 @@ public class SmsTempletListAdapter extends BaseAdapter {
 	private List<SmsVo> items;
 	SharePreferenceInfo info;
 
-	public SmsTempletListAdapter(Context context, List<SmsVo> items) {
+	public SmsTemplateListAdapter(Context context, List<SmsVo> items) {
 		mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.items = items;
 		info = new SharePreferenceInfo(context);

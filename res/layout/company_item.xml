@@ -16,14 +16,14 @@
         android:padding="10dp" >
 
         <TextView
-            android:id="@+id/compresstemplet_list_item_tv_title"
+            android:id="@+id/company_list_item_tv_title"
             style="@style/style_list_text"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/compresstemplet_list_item_btn"
+            android:id="@+id/company_list_item_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

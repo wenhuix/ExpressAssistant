@@ -23,7 +23,7 @@ import com.xiang.xunfei.R;
  * @date :2013-12-3 ÏÂÎç3:46:33 
  * @version : v4.0
  */
-public class OperationChoiceActivity extends Activity  implements OnClickListener{
+public class ActionChoiceActivity extends Activity  implements OnClickListener{
 	private Context context = this;
 	private Button btn_back; 
 	private TextView tv_title;
@@ -34,7 +34,7 @@ public class OperationChoiceActivity extends Activity  implements OnClickListene
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.operation_choice);
+		setContentView(R.layout.action_choice);
 		info = new SharePreferenceInfo(context);
 		initWidget();
 	}

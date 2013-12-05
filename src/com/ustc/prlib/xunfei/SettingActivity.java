@@ -63,7 +63,7 @@ public class SettingActivity extends Activity implements OnClickListener {
 			//Intent intent = new Intent(SettingActivity.this, OperationChoiceActivity.class);
 			//intent.putExtra( BaseParam.ADDTYPE, BaseParam.ADDTYPE_DEFAULT_OPERATE );
 			//startActivityForResult(intent, 1);
-			startActivity(new Intent(SettingActivity.this, OperationChoiceActivity.class));
+			startActivity(new Intent(SettingActivity.this, ActionChoiceActivity.class));
 			break;
 		case  R.id.set_ll_defaultexpress :
 			startActivity(new Intent(SettingActivity.this, CompanyListActivity.class));

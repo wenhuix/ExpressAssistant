@@ -20,7 +20,7 @@ import com.ustc.prlib.util.ComapnyListAdapter;
 import com.ustc.prlib.util.JsonParserUtil;
 import com.ustc.prlib.util.PrivateFileReadSave;
 import com.ustc.prlib.util.SharePreferenceInfo;
-import com.ustc.prlib.util.SmsTempletListAdapter;
+import com.ustc.prlib.util.SmsTemplateListAdapter;
 import com.ustc.prlib.vo.BaseParam;
 import com.ustc.prlib.vo.SmsVo;
 import com.xiang.xunfei.R;
@@ -38,7 +38,7 @@ public class SmsTempletActivity extends Activity implements OnClickListener{
 	private Context context = this;
 	private Button btn_add, btn_back; 
 	private ListView listView; 
-	private SmsTempletListAdapter adapter;
+	private SmsTemplateListAdapter adapter;
 	private ArrayList<SmsVo> listVo;
 	SharePreferenceInfo info;
 	@Override
@@ -60,7 +60,7 @@ public class SmsTempletActivity extends Activity implements OnClickListener{
 		if ( listVo == null ) {
 			listVo = new ArrayList<SmsVo>();
 		}
-		adapter = new SmsTempletListAdapter(context, listVo);
+		adapter = new SmsTemplateListAdapter(context, listVo);
 
 		listView = (ListView)findViewById( R.id.smstemplet_listview );
 		listView.setDividerHeight(0);
@@ -96,7 +96,7 @@ public class SmsTempletActivity extends Activity implements OnClickListener{
 		if ( listVo == null ) {
 			listVo = new ArrayList<SmsVo>();
 		}
-		adapter = new SmsTempletListAdapter(context, listVo);
+		adapter = new SmsTemplateListAdapter(context, listVo);
 		listView.setAdapter( adapter);
 	}
 
@@ -108,8 +108,8 @@ public class SmsTempletActivity extends Activity implements OnClickListener{
 			finish();
 			break;
 		case  R.id.smstemplet_btn_add :
-			Intent intent = new Intent(context, AddItemActivity.class);
-			intent.putExtra( BaseParam.ADDTYPE, BaseParam.ADDTYPE_SMS_TEMPLET);
+			Intent intent = new Intent(context, ItemOperationActivity.class);
+			intent.putExtra( BaseParam.OPERATION_TYPE, BaseParam.OPERATION_ADD_SMS_TEMPLATE);
 			startActivityForResult(intent, 1);
 			break;
 		}

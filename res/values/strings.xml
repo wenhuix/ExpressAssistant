@@ -23,10 +23,7 @@
     <string name="action_search">Search</string>
     <string name="main_title">快递员助手</string>
     <string name="welcome_content">快递员助手</string>
-    <string name="send_buttom">发送</string>
-	
-    
-    <!-- help -->
+    <string name="send_buttom">发送</string><!-- help -->
     <string name="title_activity_help">帮助</string>
     <string name="how_to_use">使用方法：</string>
     <string name="help_world">此应用程序能够帮助快递员利用短信或电话的方式快速地通知客户收取包裹：快递员只需要对着麦克风说出相应的手机号码，程序即可通过语音识别技术将号码显示在屏幕上，并向该号码打电话或者发送预先设定的短信模板。</string>
@@ -36,5 +33,10 @@
     <string name="contactus">联系我们：xiangwenhui@gmail.com</string>
     <string name="version">版本：1.0.0</string>
     <string name="technical_support">语音识别技术由科大讯飞语音云提供</string>
+
+    <string-array name="menu">
+        <item>编辑</item>
+        <item>删除</item>
+    </string-array>
    
 </resources>

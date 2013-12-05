@@ -6,20 +6,19 @@
     android:orientation="vertical" >
 
     <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="@dimen/topmenu_height"
         style="@style/style_topmenu_bg"
-     >
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/topmenu_height" >
 
         <TextView
+            style="@style/style_topmenu_text"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center"
-            style="@style/style_topmenu_text"
             android:text="设置快递公司" />
 
         <Button
-            android:id="@+id/compresstemplet_btn_back"
+            android:id="@+id/company_btn_back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentLeft="true"
@@ -27,19 +26,17 @@
             android:background="@drawable/ic_action_previous_item" />
 
         <Button
-            android:id="@+id/compresstemplet_btn_add"
+            android:id="@+id/company_btn_add"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginRight="10dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
             android:background="@drawable/ic_action_add_to_queue" />
     </RelativeLayout>
 
-
-
     <ListView
-        android:id="@+id/compresstemplet_listview"
+        android:id="@+id/company_listview"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

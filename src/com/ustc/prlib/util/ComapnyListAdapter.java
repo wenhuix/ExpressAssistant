@@ -52,8 +52,8 @@ public class ComapnyListAdapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = mInflater.inflate(R.layout.company_item, null);
 			holder = new ListItemHolder();
-			holder.mTextView = (TextView) convertView.findViewById(R.id.compresstemplet_list_item_tv_title);
-			holder.btn = (Button) convertView.findViewById(R.id.compresstemplet_list_item_btn);
+			holder.mTextView = (TextView) convertView.findViewById(R.id.company_list_item_tv_title);
+			holder.btn = (Button) convertView.findViewById(R.id.company_list_item_btn);
 
 			convertView.setTag(holder);
 		} else {

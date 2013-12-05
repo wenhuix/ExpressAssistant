@@ -47,10 +47,10 @@
             android:name="com.ustc.prlib.xunfei.CompanyListActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity
-            android:name="com.ustc.prlib.xunfei.AddItemActivity"
+            android:name="com.ustc.prlib.xunfei.ItemOperationActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
         <activity
-            android:name="com.ustc.prlib.xunfei.OperationChoiceActivity"
+            android:name="com.ustc.prlib.xunfei.ActionChoiceActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
     </application>
 

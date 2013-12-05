@@ -7,13 +7,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ustc.prlib.util.ButtonColorFilter;
 import com.ustc.prlib.util.ComapnyListAdapter;
@@ -34,6 +41,10 @@ import com.xiang.xunfei.R;
  * @version : v4.0
  */
 public class CompanyListActivity extends Activity implements OnClickListener{
+	
+	public static final int EDIT_COMPANY_ITEM = 0;
+	public static final int DELETE_COMPANY_ITEM = 1;
+	
 	private Context context = this;
 	private Button btn_add, btn_back; 
 	private ListView listView; 
@@ -52,12 +63,12 @@ public class CompanyListActivity extends Activity implements OnClickListener{
 
 	private void initWidget() {
 
-		listView = (ListView)findViewById( R.id.compresstemplet_listview );
+		listView = (ListView)findViewById( R.id.company_listview );
 		listView.setDividerHeight(0);
 
-		btn_back = (Button)findViewById( R.id.compresstemplet_btn_back );
+		btn_back = (Button)findViewById( R.id.company_btn_back );
 		btn_back.setOnClickListener( this );
-		btn_add = (Button)findViewById( R.id.compresstemplet_btn_add );
+		btn_add = (Button)findViewById( R.id.company_btn_add );
 		btn_add.setOnClickListener( this );
 		ButtonColorFilter.setButtonFocusChanged( btn_back);
 		ButtonColorFilter.setButtonFocusChanged( btn_add);
@@ -72,6 +83,21 @@ public class CompanyListActivity extends Activity implements OnClickListener{
 				finish();
 			}
 		});
+		
+/*		listView.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				//Toast.makeText(context, "Item in position " + position + " clicked", 0).show();
+				return true;
+			}
+			
+		}
+		);*/
+		
+		registerForContextMenu(listView);
 		
 	}
 
@@ -92,15 +118,67 @@ public class CompanyListActivity extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch ( v.getId() ) {
-		case R.id.compresstemplet_btn_back:
+		case R.id.company_btn_back:
 			finish();
 			break;
-		case  R.id.compresstemplet_btn_add :
-			Intent intent = new Intent(context, AddItemActivity.class);
-			intent.putExtra( BaseParam.ADDTYPE, BaseParam.ADDTYPE_EXPRESS_TEMPLET);
+		case  R.id.company_btn_add :
+			Intent intent = new Intent(context, ItemOperationActivity.class);
+			intent.putExtra( BaseParam.OPERATION_TYPE, BaseParam.OPERATION_ADD_COMPANY_TEMPLATE);
 			startActivityForResult(intent, 1);
 			break;
 		}
+	}
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo info) {
+		if(v.getId() == R.id.company_listview) {
+			AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo)info;
+			String[] menuItems = getResources().getStringArray(R.array.menu);
+			for (int i = 0; i<menuItems.length; i++) {
+			      menu.add(Menu.NONE, i, i, menuItems[i]);
+			}
+		}
+	}
+	
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item
+				.getMenuInfo();
+		int menuItemIndex = item.getItemId();
+		//String[] menuItems = getResources().getStringArray(R.array.menu);
+		//String menuItemName = menuItems[menuItemIndex];
+
+		//Toast.makeText(context, info.position + " clicked", 0).show();
+		int position = menuInfo.position;
+		switch (menuItemIndex) {
+
+		case EDIT_COMPANY_ITEM:
+			
+			Intent intent = new Intent(context, ItemOperationActivity.class);
+			intent.putExtra(BaseParam.OPERATION_TYPE,
+					BaseParam.OPERATION_EDIT_COMPANY_TEMPLATE);
+			intent.putExtra(BaseParam.CLICK_ITEM_POSION, position);
+			intent.putExtra(BaseParam.CLICK_ITEM_CONTENT, listVo.get(position).getContent());
+			startActivityForResult(intent, 1);
+			break;
+
+		case DELETE_COMPANY_ITEM:
+
+			listVo.remove(position);
+			if(this.info.getDefaultCompressTempletId() == position && listVo.size()>0)
+			{
+				info.updateDefaultCompressContent(listVo.get(0).getContent());
+				info.updateDefaultCompressTempletId(0);
+			}
+			adapter.notifyDataSetChanged();
+			Gson gson = new Gson();
+			String result = gson.toJson( listVo );
+			PrivateFileReadSave.save(BaseParam.SMS_FILENAME, result, context);
+			finish();
+			break;
+		}
+		
+		return true;
 	}
 
 	@Override

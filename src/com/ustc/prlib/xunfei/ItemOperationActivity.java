@@ -10,6 +10,7 @@ import com.ustc.prlib.util.JsonParserUtil;
 import com.ustc.prlib.util.PrivateFileReadSave;
 import com.ustc.prlib.util.SharePreferenceInfo;
 import com.ustc.prlib.vo.BaseParam;
+import com.ustc.prlib.vo.BaseVo;
 import com.ustc.prlib.vo.ExpressVo;
 import com.ustc.prlib.vo.SmsVo;
 import com.xiang.xunfei.R;
@@ -26,14 +27,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * @description : 模板添加
+ * @description : 模板增删改
  * @package com.xiang.xunfei
  * @title:AddTempletActivity.java
  * @author : email:xiangyanhui@unitepower.net
  * @date :2013-12-3 下午3:46:33 
  * @version : v4.0
  */
-public class AddItemActivity extends Activity  implements OnClickListener{
+public class ItemOperationActivity extends Activity  implements OnClickListener{
 	private Context context = this;
 	private Button btn_save, btn_back; 
 	private EditText et;
@@ -45,11 +46,11 @@ public class AddItemActivity extends Activity  implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add_item);
-		addType = getIntent().getIntExtra(BaseParam.ADDTYPE, -1);
+		addType = getIntent().getIntExtra(BaseParam.OPERATION_TYPE, -1);
 		info = new SharePreferenceInfo(context);
 		initWidget();
 	}
-
+	
 	private void initWidget() {
 		btn_save = (Button)findViewById( R.id.addtemplet_btn_save );
 		btn_back = (Button)findViewById( R.id.addtemplet_btn_back );
@@ -62,14 +63,22 @@ public class AddItemActivity extends Activity  implements OnClickListener{
 		btn_back.setOnClickListener(this);
 
 		switch( addType ) {
-		case BaseParam.ADDTYPE_SMS_TEMPLET :
+		case BaseParam.OPERATION_ADD_SMS_TEMPLATE :
 			tv_title.setText("添加短信模板");
 			et.setHint("请输入短信内容");
 			break;
-		case BaseParam.ADDTYPE_EXPRESS_TEMPLET :
+		case BaseParam.OPERATION_ADD_COMPANY_TEMPLATE :
 			tv_title.setText("添加快递公司");
 			et.setHint("请输入快递名称");
 			break;
+		case BaseParam.OPERATION_EDIT_SMS_TEMPLATE:
+			tv_title.setText("修改短信模板");
+			et.setText(getIntent().getExtras().get(BaseParam.CLICK_ITEM_CONTENT).toString());
+			getIntent().getExtras().get(BaseParam.CLICK_ITEM_POSION);
+		case BaseParam.OPERATION_EDIT_COMPANY_TEMPLATE:
+			tv_title.setText("修改快递公司");
+			et.setText(getIntent().getExtras().get(BaseParam.CLICK_ITEM_CONTENT).toString());
+			getIntent().getExtras().get(BaseParam.CLICK_ITEM_POSION);
 		}
 	}
 
@@ -100,6 +109,32 @@ public class AddItemActivity extends Activity  implements OnClickListener{
 		info.updateDefaultSmsTempletId( currentId );
 		info.updateDefaultSmsContent(content);
 		Toast.makeText(context, "添加成功", 0).show();
+		setResult(1);
+		finish();
+	}
+	
+	//TODO
+	private void EditSmsTemplate(int position) {
+
+		int currentId = 0;
+		ArrayList<SmsVo> listVo = null;
+		String temp = PrivateFileReadSave.read(BaseParam.SMS_FILENAME, context);
+		if ( temp != null ) {
+			Type type = new TypeToken<ArrayList<SmsVo>>(){}.getType();
+			listVo = (ArrayList<SmsVo>) JsonParserUtil.parseJson2ListNoItem(temp, type);
+			 
+		}  
+		if ( listVo == null || listVo.size()<position+1) {
+			return;
+		}
+		listVo.remove(position);
+		
+		Gson gson = new Gson();
+		String result = gson.toJson( listVo );
+		PrivateFileReadSave.save(BaseParam.SMS_FILENAME, result, context);
+		info.updateDefaultSmsTempletId(0);
+		info.updateDefaultSmsContent(listVo.get(0).getContent());
+		Toast.makeText(context, "删除成功", 0).show();
 		setResult(1);
 		finish();
 	}
@@ -140,7 +175,7 @@ public class AddItemActivity extends Activity  implements OnClickListener{
 		switch (v.getId()) {
 		case R.id.addtemplet_btn_save:
 			switch (addType) {
-			case BaseParam.ADDTYPE_SMS_TEMPLET:
+			case BaseParam.OPERATION_ADD_SMS_TEMPLATE:
 				if (!"".equals(et.getText().toString())
 						&& et.getText().toString() != null) {
 					addSmsTemplet(et.getText().toString());
@@ -148,7 +183,7 @@ public class AddItemActivity extends Activity  implements OnClickListener{
 					Toast.makeText(context, "模板内容不能为空", 0).show();
 				}
 				break;
-			case BaseParam.ADDTYPE_EXPRESS_TEMPLET:
+			case BaseParam.OPERATION_ADD_COMPANY_TEMPLATE:
 				if (!"".equals(et.getText().toString())
 						&& et.getText().toString() != null) {
 					addCompressTemplet(et.getText().toString());
