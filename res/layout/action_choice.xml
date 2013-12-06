@@ -25,7 +25,6 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:background="@drawable/ic_action_previous_item" />
-
     </RelativeLayout>
 
     <LinearLayout
@@ -62,44 +61,14 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/addtemplet_ll_addconnect"
-            android:layout_width="fill_parent"
-            android:layout_height="44dp"
-            android:background="@drawable/buy_style_personcenter_bg"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp" 
-            android:layout_marginTop="5dp"
-            >
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:gravity="left|center_vertical"
-                android:text="加入通讯录"
-                android:textColor="@drawable/black"
-                android:textSize="16sp" />
-
-            <Button
-                android:id="@+id/addtemplet_btn_addconnect"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/btn_selno"
-                android:clickable="false" />
-        </LinearLayout>
-
-
-        <LinearLayout
             android:id="@+id/addtemplet_ll_call"
             android:layout_width="fill_parent"
             android:layout_height="44dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/buy_style_personcenter_bg"
             android:orientation="horizontal"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:layout_marginTop="5dp"
-             >
+            android:paddingRight="10dp" >
 
             <TextView
                 android:layout_width="fill_parent"
@@ -112,6 +81,33 @@
 
             <Button
                 android:id="@+id/addtemplet_btn_call"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/btn_selno"
+                android:clickable="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addtemplet_ll_addconnect"
+            android:layout_width="fill_parent"
+            android:layout_height="44dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/buy_style_personcenter_bg"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:gravity="left|center_vertical"
+                android:text="加入通讯录"
+                android:textColor="@drawable/black"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/addtemplet_btn_addconnect"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@drawable/btn_selno"
