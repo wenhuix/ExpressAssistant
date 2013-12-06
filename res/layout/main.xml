@@ -19,8 +19,8 @@
 
         <Button
             android:id="@+id/main_btn_set"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="64dp"
+            android:layout_height="44dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:background="@drawable/settings" />

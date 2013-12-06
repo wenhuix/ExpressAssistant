@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">讯飞测试</string>
+    <string name="app_name">快递员助手</string>
     <string name="app_id">5270cddf</string>
     
     
@@ -20,15 +20,15 @@
     
     <string name="action_settings">设置</string>
     <string name="action_help">帮助</string>
-    <string name="action_search">Search</string>
     <string name="main_title">快递员助手</string>
     <string name="welcome_content">快递员助手</string>
-    <string name="send_buttom">发送</string><!-- help -->
+    <string name="send_buttom">发送</string>
+    <!-- help -->
     <string name="title_activity_help">帮助</string>
     <string name="how_to_use">使用方法：</string>
     <string name="help_world">此应用程序能够帮助快递员利用短信或电话的方式快速地通知客户收取包裹：快递员只需要对着麦克风说出相应的手机号码，程序即可通过语音识别技术将号码显示在屏幕上，并向该号码打电话或者发送预先设定的短信模板。</string>
     <string name="help_about">关于：</string>
-    <string name="author_design">设计：小Y_king</string>
+    <string name="author_design">设计：小Y_King</string>
     <string name="author_dev">开发：wenhuix</string>
     <string name="contactus">联系我们：xiangwenhui@gmail.com</string>
     <string name="version">版本：1.0.0</string>
@@ -36,7 +36,7 @@
     
     <string-array name="sms_template">
         <item>亲爱的客户，快递放在物业啦，麻烦有空像一只小鹿一样欢快地跑过去拿一下。</item>
-        <item>主人，我是您的包小裹，我坐飞机，又是坐火车，紧接着又被汇通师傅用电动车拉到科大东门，请在12点到12点20分来救我！我在等你！</item>
+        <item>主人，我是您的包小裹，我坐飞机，又是坐火车，紧接着又被快递师傅用电动车拉到科大东门，请在12点到12点20分来救我！我在等你！</item>
     </string-array>
 
     <string-array name="express_company">

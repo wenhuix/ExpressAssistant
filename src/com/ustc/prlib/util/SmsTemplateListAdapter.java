@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.ustc.prlib.vo.SmsVo;
 import com.xiang.xunfei.R;
 
-
 public class SmsTemplateListAdapter extends BaseAdapter {
 	static class ListItemHolder {
 		TextView mTextView1;
@@ -27,19 +26,20 @@ public class SmsTemplateListAdapter extends BaseAdapter {
 	SharePreferenceInfo info;
 
 	public SmsTemplateListAdapter(Context context, List<SmsVo> items) {
-		mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		mInflater = (LayoutInflater) context
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.items = items;
 		info = new SharePreferenceInfo(context);
 	}
 
 	@Override
 	public int getCount() {
-		return  items.size();
+		return items.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		return  items.get(position);
+		return items.get(position);
 	}
 
 	@Override
@@ -53,9 +53,12 @@ public class SmsTemplateListAdapter extends BaseAdapter {
 		if (convertView == null) {
 			convertView = mInflater.inflate(R.layout.smstemplet_item, null);
 			holder = new ListItemHolder();
-			holder.mTextView1 = (TextView) convertView.findViewById(R.id.smstemplet_list_item_tv_title);
-			holder.mTextView2 = (TextView) convertView.findViewById(R.id.smstemplet_list_item_tv_company);
-			holder.btn = (Button) convertView.findViewById(R.id.smstemplet_list_item_btn);
+			holder.mTextView1 = (TextView) convertView
+					.findViewById(R.id.smstemplet_list_item_tv_title);
+			holder.mTextView2 = (TextView) convertView
+					.findViewById(R.id.smstemplet_list_item_tv_company);
+			holder.btn = (Button) convertView
+					.findViewById(R.id.smstemplet_list_item_btn);
 
 			convertView.setTag(holder);
 		} else {
@@ -64,13 +67,13 @@ public class SmsTemplateListAdapter extends BaseAdapter {
 
 		SmsVo item = items.get(position);
 		if (item != null) {
-			 holder.mTextView1.setText( item.getContent() );
-			 holder.mTextView2.setText( info.getDefaultCompany() );
-			 if (  info.getDefaultSmsTemplateId() == item.getId() ) {
-				 holder.btn.setBackgroundResource( R.drawable.btn_sel );
-			 } else {
-				 holder.btn.setBackgroundResource( R.drawable.btn_selno );
-			 }
+			holder.mTextView1.setText(item.getContent());
+			holder.mTextView2.setText(info.getDefaultCompany());
+			if (info.getDefaultSmsTemplateId() == item.getId()) {
+				holder.btn.setBackgroundResource(R.drawable.btn_sel);
+			} else {
+				holder.btn.setBackgroundResource(R.drawable.btn_selno);
+			}
 		}
 		return convertView;
 	}
