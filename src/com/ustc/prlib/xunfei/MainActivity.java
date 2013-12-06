@@ -227,9 +227,9 @@ public class MainActivity extends Activity implements OnClickListener,
 		case R.id.action_logout:
 			finish();
 			return true;
-		case R.id.action_settings:
+/*		case R.id.action_settings:
 			startActivity(new Intent(MainActivity.this, SettingActivity.class));
-			return true;
+			return true;*/
 		default:
 			return super.onOptionsItemSelected(item);
 		}
