@@ -11,6 +11,9 @@ tmp/
 *.bak
 *.swp
 *~.nib
+.settings/
+.gitignore
+.gitattributes
 local.properties
 .classpath
 .settings/

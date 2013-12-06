@@ -51,7 +51,7 @@ public class MainActivity extends Activity implements OnClickListener,
 	private ArrayList<PhoneVo> listVo;
 
 	private Context context = this;
-	private Button btn_start, btn_more;
+	private Button btn_start, btn_set;
 	private SharedPreferences mSharedPreferences;// 缓存，保存当前的引擎参数到下一次启动应用程序使用.
 
 	private RecognizerDialog iatDialog;// 识别Dialog
@@ -93,11 +93,11 @@ public class MainActivity extends Activity implements OnClickListener,
 		listView.setDividerHeight(0);
 		listView.setAdapter(adapter);
 
-		btn_more = (Button) findViewById(R.id.main_btn_set);
-		btn_more.setOnClickListener(this);
+		btn_set = (Button) findViewById(R.id.main_btn_set);
+		btn_set.setOnClickListener(this);
 		btn_start = (Button) findViewById(R.id.main_btn_getword);
 		btn_start.setOnClickListener(this);
-		ButtonColorFilter.setButtonFocusChanged(btn_more);
+		ButtonColorFilter.setButtonFocusChanged(btn_set);
 	}
 
 	/**
@@ -185,6 +185,8 @@ public class MainActivity extends Activity implements OnClickListener,
 											.trim())) {
 										PublicUtil.insertContact(context, et
 												.getText().toString(), phone);
+										Toast.makeText(context, "保存联系人成功。", Toast.LENGTH_SHORT)
+										.show();
 									}
 								}
 							}).setNegativeButton("取消", null).show();
